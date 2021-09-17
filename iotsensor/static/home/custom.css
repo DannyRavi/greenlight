@@ -1,0 +1,142 @@
+body {
+	font-size: 14px;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	color: #656565;
+}
+
+footer {
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+.nav-sm .nav.side-menu li a {
+	
+	font-size:12px !important;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+
+a {
+	color: #656565;
+}
+
+.top_nav .dropdown-menu li a {
+	
+	padding: 5px 20px;
+	color:#333;
+}
+
+.myLink {
+	font-weight:bold;
+}
+
+a.myLink:hover { 
+	text-decoration: underline;
+}
+
+
+table.dataTable {
+	border-collapse: inherit !important;
+}
+
+body .container.body .right_col {
+	background: #fff;
+}
+
+ul.bar_tabs>li a {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.dropdown-menu>li>a {
+	color: #656565;
+}
+
+.table>thead>tr>th {
+	color: #888;
+}
+
+.table>thead>tr>th.sorting {
+	color: #174b75;
+	text-decoration: none;
+}
+
+.table>thead>tr>th.sorting_asc {
+	color: #174b75;
+	text-decoration: none;
+}
+
+.panel_toolbox>li>a:hover {
+	background: none;
+}
+
+.table>thead>tr>th.sorting_desc {
+	color: #174b75;
+	text-decoration: none;
+}
+
+.title_left h3 {
+	font-weight: bold;
+}
+
+label {
+	color: #656565;
+	font-weight: bold;
+}
+
+/* exit boutton */
+/* disable boutton in table */
+/* add Graph boutton in table */
+.bt1 {
+	background-color: #1b334b !important;
+	border-color: #6d7c84 !important;
+}
+
+/* edit bouttons */
+/* add sensor boutton */
+/* save bouttons */
+/* edit alert in table */
+.bt2 {
+	background-color: #F05323 !important;
+	border-color: #F05323 !important
+}
+
+/* add module boutton */
+.bt3 {
+	background-color: #E74C3C !important;
+	border-color: #E74C3C !important
+}
+
+/* edit boutton in table  */
+/* clear sensors boutton  */
+.bt4 {
+	background-color: #cd0057 !important;
+	border-color: #cd0057 !important
+}
+
+/* delete sensor */
+/* generate api keys buttons boutton */
+/* remove boutton in table */
+.bt5 {
+	background-color: #F05050 !important;
+	border-color: #F05050 !important
+}
+/* visualize boutton in table */
+/* export csv boutton in table */
+.bt6 {
+	background-color: #27C24C !important;
+	border-color: #27C24C !important
+}
+
+.my-footer {
+	background-color: #1B334B;
+	color: #FFF;
+}
+
+.my-footer a {
+	color: #FFF;
+}

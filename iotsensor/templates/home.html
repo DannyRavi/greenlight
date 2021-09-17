@@ -1,0 +1,437 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://asksensors.com/home.html -->
+<html lang="en" class=" "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Cookies -->
+<script type="text/javascript" async="" src="{% static 'home/analytics.js.download' %}"></script><script type="text/javascript">
+	var tarteaucitronForceLanguage = 'en'; /* supported: fr, en, de, es, it, pt, pl, ru */
+</script>
+
+<script type="text/javascript" src="{% static 'home/tarteaucitron.js.download' %}"></script>
+<script type="text/javascript">
+	tarteaucitron.init({
+		"hashtag" : "#tarteaucitron", /* Automatically open the panel with the hashtag */
+		"highPrivacy" : false, /* disabling the auto consent feature on navigation? */
+		"orientation" : "bottom", /* the big banner should be on 'top' or 'bottom'? */
+		"adblocker" : false, /* Display a message if an adblocker is detected */
+		"showAlertSmall" : false, /* show the small banner on bottom right? */
+		"cookieslist" : true, /* Display the list of cookies installed ? */
+		"removeCredit" : false, /* remove the credit link? */
+		"handleBrowserDNTRequest" : false, /* Deny everything if DNT is on */
+	//"cookieDomain": ".example.com" /* Domain name on which the cookie for the subdomains will be placed */
+	});
+</script>
+<meta name="description" content="AskSensors is an IoT platform designed to be the easiest application on the market. You can connect your sensors easily, manage connected devices in real time and analyse the acquired data over the cloud.">
+<link rel="icon" type="image/x-icon" href="https://asksensors.com/img/favicon.ico">
+<!-- Open graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AskSensors - An Amazing IoT platform">
+<meta property="og:url" content="https://asksensors.com">
+<meta property="og:site_name" content="AskSensors">
+<meta property="og:image" content="https://asksensors.com/img/about-asksensors.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AskSensors - An Amazing IoT platform">
+<meta name="twitter:site" content="@asksensors">
+<meta name="twitter:creator" content="@asksensors">
+<meta name="robots" content="noindex">
+
+
+<!-- Meta, title, CSS, favicons, etc. -->
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="https://asksensors.com/img/favicon.ico">
+<title>AskSensors | My Workspace</title>
+
+<!-- Bootstrap -->
+<link href="{% static 'home/bootstrap.min.css' %}" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="{% static 'home/font-awesome.min.css' %}" rel="stylesheet">
+<!-- NProgress -->
+<link href="{% static 'home/nprogress.css' %}" rel="stylesheet">
+<!-- iCheck -->
+<link href="{% static 'home/green.css' %}" rel="stylesheet">
+<!-- Datatables -->
+<link href="{% static 'home/dataTables.bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'home/buttons.bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'home/fixedHeader.bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'home/responsive.bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'home/scroller.bootstrap.min.css' %}" rel="stylesheet">
+<!-- Custom Theme Style -->
+<link href="{% static 'home/custom.min.css' %}" rel="stylesheet">
+<link href="{% static 'home/custom.css' %}" rel="stylesheet">
+<link href="{% static 'home/preloader.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'home/font-awesome.min(1).css' %}">
+<style>
+.mr-3, .mx-3 {
+	margin-right: 2rem !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter select {
+	margin-left: 0.5em;
+	display: inline-block;
+	width: auto;
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+	font-weight: normal;
+	white-space: nowrap;
+	text-align: left;
+}
+
+.btMenu {
+	padding: 8%;
+	width: 90%;
+	box-shadow: 2px 3px 2px 1px rgba(0, 0, 0, 0.2);
+	background-color: #1b334b !important;
+	border-color: #6d7c84 !important;
+	background-image: linear-gradient(#1b334b, #304f6d);
+}
+
+.btMenu:hover {
+
+background-image: linear-gradient(#304f6d, #1b334b);
+}
+
+table.dataTable tbody td {
+	cursor: pointer;
+}
+
+.pt-3, .py-3 {
+	padding-top: 1rem !important;
+}
+
+.pr-3, .px-3 {
+	padding-right: 1rem !important;
+}
+
+.pb-3, .py-3 {
+	padding-bottom: 1rem !important;
+}
+
+.control-label-view {
+	text-align: right;
+}
+
+table.dataTable tbody td {
+	vertical-align: middle;
+}
+</style>
+<link rel="stylesheet" type="text/css' %}" href="{% static 'home/tarteaucitron.css' %}"><script type="text/javascript" id="" async="" src="{% static 'home/tarteaucitron.en.js.download' %}"></script><script type="text/javascript" id="" async="" src="{% static 'home/tarteaucitron.services.js.download' %}"></script><script type="text/javascript" id="" async="" src="{% static 'home/js' %}"></script></head>
+<!-- 
+Bootstrap Admin Template by Colorlib https://colorlib.com
+ -->
+<body class="nav-sm" onload="onloadEnd()">
+	<div class="preloader preloader-hidden">
+		<div class="preloader-progress"></div>
+	</div>
+	<div id="ajaxPreloader" class="preloader preloader-hidden" style="display: none;">
+		<div class="preloader-progress"></div>
+	</div>
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+					<div class="navbar nav_title" style="border: 0;">
+						<a href="https://asksensors.com/home.html" class="site_title"> <img src="{% static 'home/logo.png" style="margin-left: 5%;" width="42px" height="42px"> <span>AskSensors</span></a>
+					</div>
+
+					<div class="clearfix"></div>
+
+					<!-- menu profile quick info -->
+					<!--             <div class="profile clearfix"> -->
+					<!--               <div class="profile_pic"> -->
+					<!--                 <img src="images/user.png" alt="..." class="img-circle profile_img"> -->
+					<!--               </div> -->
+					<!--               <div class="profile_info"> -->
+					<!--                 <span>Welcome,</span> -->
+					<!--                 <h2>John Doe</h2> -->
+					<!--               </div> -->
+					<!--             </div> -->
+					<!-- /menu profile quick info -->
+
+					<br>
+
+					<!-- sidebar menu -->
+					<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+						<div class="menu_section active">
+							<!--                 <h3>General</h3> -->
+							<ul class="nav side-menu" style="">
+								<li class="current-page"><a href="https://asksensors.com/home.html"><i class="fa fa-home"></i> Home </a></li>
+								<li><a><i class="fa fa-hdd-o"></i>
+										Devices <span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu" style="display: none;">
+										<li><a href="http://0.0.0.0:8000/gauge">Sensor devices</a></li>
+										<li><a href="https://asksensors.com/actuators.html">Actuator devices</a></li>
+									</ul></li>
+								<li><a><i class="fa fa-tachometer"></i> Dashboards
+										<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu" style="display: none;">
+										<li><a href="https://asksensors.com/dashboards.html">Custom dashboards</a></li>
+										<li><a href="https://asksensors.com/viewFavorits.html">Favorite widgets</a></li>
+<!-- 										<li><a href="#">Shared widgets</a></li> -->
+									</ul></li>
+									<li><a href="https://asksensors.com/home.html#" onclick="comingSoonDialog()"><i class="fa fa-cogs"></i> Automation
+										<span class="fa fa-chevron-down"></span></a>
+<!-- 									<ul class="nav child_menu" style="display: block;"> -->
+<!-- 										<li><a href="downloads.html">Downloads Center</a></li> -->
+<!-- 										<li><a href="settings.html">Date & Time</a></li> -->
+<!-- <!-- 										<li><a href="#">Shared widgets</a></li> --> 
+<!-- 									</ul> -->
+									</li>
+
+							</ul>
+						</div>
+
+					</div>
+					<!-- /sidebar menu -->
+
+					<!-- /menu footer buttons -->
+					<!--             <div class="sidebar-footer hidden-small"> -->
+					<!--               <a data-toggle="tooltip" data-placement="top" title="Settings"> -->
+					<!--                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> -->
+					<!--               </a> -->
+					<!--               <a data-toggle="tooltip" data-placement="top" title="FullScreen"> -->
+					<!--                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span> -->
+					<!--               </a> -->
+					<!--               <a data-toggle="tooltip" data-placement="top" title="Lock"> -->
+					<!--                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span> -->
+					<!--               </a> -->
+					<!--               <a data-toggle="tooltip" data-placement="top" title="Logout" href="#"  onclick="logout()"> -->
+					<!--                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span> -->
+					<!--               </a> -->
+					<!--             </div> -->
+					<!-- /menu footer buttons -->
+				</div>
+			</div>
+
+			<!-- top navigation -->
+			<div class="top_nav">
+				<div class="nav_menu">
+					<nav>
+						<div class="col-md-8 col-xs-4">
+							<div class="nav toggle">
+								<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+							</div>
+						</div>
+						<div class="col-md-2 col-xs-4  visible-sm visible-md visible-lg">
+							<ul class="nav navbar-nav navbar-right" id="daysLevDiv">
+								<li class=""><a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+										<button class="btn btn-info" onclick="javascript:location.href=&#39;payment.html&#39;" type="button" style="border:1px solid red; background-color: #FFF;color:red; font-size: 12px;opacity: 0.6;filter: alpha(opacity=60);">
+											<span id="daysLeft">76 days left on free trial</span>
+										</button>
+								</a></li>
+							</ul>
+						</div>
+            <div class="col-md-2 col-xs-8">
+            					<ul class="nav navbar-nav navbar-right">
+							<li class=""><a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> 
+													<button class="btn" type="button" style="color:#000;border:1px solid #808080; background-color: #EDEDED; font-size: 12px;">
+											&nbsp;<span id="username">khosravi</span> &nbsp;<span class=" fa fa-angle-down"></span>
+										</button>
+							</a>
+								<ul class="dropdown-menu dropdown-usermenu pull-right" style="font-size:14px;color:#000">
+									 <li><a href="https://asksensors.com/editMyProfil.html"> My Profile</a></li>
+									  <li><a href="https://asksensors.com/myAccount.html"> My Account</a></li>
+									   <li><a href="https://asksensors.com/downloads.html">Downloads Center</a></li>
+									  <li><a href="https://asksensors.com/payment.html"> Billing and Upgrade</a></li>
+									<li id="usersDiv" style="display:none;"><a href="https://asksensors.com/users.html"> Account users</a></li>
+																		<li id="daysLevDiv2" class="visible-xs" style="display: list-item;">
+										<a href="https://asksensors.com/payment.html">
+										<button class="btn btn-info" onclick="javascript:location.href=&#39;payment.html&#39;" type="button" style="border:1px solid red; background-color: #FFF;color:red; font-size: 12px;opacity: 0.6;filter: alpha(opacity=60);">
+											<span id="daysLeft2">76 days left on free trial</span>
+										</button>
+										</a>
+										</li>
+									<li><a href="https://asksensors.com/home.html#" onclick="logout()"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+								</ul>
+								</li>
+						</ul>
+            </div>
+					</nav>
+				</div>
+			</div>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<div class="right_col" role="main" style="background: rgb(247, 247, 247); min-height: 819px;">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3></h3>
+						</div>
+
+						<div class="title_right">
+							<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+								<!--                   <div class="input-group"> -->
+								<!--                     <input type="text" class="form-control" placeholder="Search for..."> -->
+								<!--                     <span class="input-group-btn"> -->
+								<!--                       <button class="btn btn-default" type="button">Go!</button> -->
+								<!--                     </span> -->
+								<!--                   </div> -->
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="row top_tiles"></div>
+				<div class="row  text-center">
+					<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+						<div class="row text-center">
+						<div class="col-md-2 col-xs-12">
+						&nbsp;
+						</div>
+							<div class="col-md-4 col-xs-12">
+								<button class="btn btn-success btn-lg text-center btMenu" onclick="window.location.href=&#39;gauge/&#39;">
+									<div class="icon">
+										<i class="fa fa-2x fa-thermometer-3"></i>
+									</div>
+									Sensor devices
+								</button>
+							</div>
+							<div class="col-md-4 col-xs-12">
+								<button class="btn btn-success btn-lg text-center btMenu" onclick="window.location.href=&#39;actuators.html&#39;">
+									<div class="icon">
+										<i class="fa fa-2x fa-sliders"></i>
+									</div>
+									Actuator devices
+								</button>
+							</div>
+						<div class="col-md-2 col-xs-12 visible-sm visible-md visible-lg">
+						&nbsp;
+						</div>
+							</div>
+							<div class="row text-center">
+							<div class="col-md-2 col-xs-12 visible-sm visible-md visible-lg">
+						&nbsp;
+						</div>
+							<div class="col-md-4 col-xs-12">
+								<button class="btn btn-success btn-lg text-center btMenu" onclick="window.location.href=&#39;dashboards.html&#39;">
+									<div class="icon">
+										<i class="fa fa-2x fa fa-tachometer"></i>
+									</div>
+									Dashboards
+								</button>
+							</div>
+							<div class="col-md-4 col-xs-12">
+								<button class="btn btn-success btn-lg text-center btMenu" onclick="window.location.href=&#39;viewFavorits.html&#39;">
+									<div class="icon">
+										<i class="fa fa-2x fa-star-o"></i>
+									</div>
+									Favorite widgets
+								</button>
+							</div>
+						<div class="col-md-2 col-xs-12">
+						&nbsp;
+						</div>
+<!-- 							<div class="col-md-4 col-xs-12"> -->
+<!-- 								<button class="btn btn-success btn-lg text-center btMenu" -->
+<!-- 									onclick="window.location.href='#'"> -->
+<!-- 									<div class="icon"> -->
+<!-- 										<i class="fa fa-2x fa-share-alt-square"></i> -->
+<!-- 									</div> -->
+<!-- 									Shared widgets -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /page content -->
+
+
+			<!-- footer content -->
+			<!--Footer-->
+			<footer class="page-footer text-center font-small wow fadeIn my-footer">
+
+				<!--Copyright-->
+				<div class="footer-copyright py-3" style="color: white;">
+					<a href="https://asksensors.com/about.html" target="_blank"> About Us </a>| <a href="https://asksensors.com/terms.html" target="_blank" rel="nofollow"> Terms &amp;
+						Conditions of Use </a>| <a href="https://asksensors.com/privacy.html" target="_blank" rel="nofollow"> Privacy &amp; Policy </a>| <a href="https://asksensors.com/contact.html" target="_blank" rel="nofollow"> Contact Us </a>
+					<p> © 2018-2020 Copyright <a href="https://asksensors.com/index.html" target="_blank">
+						AskSensors </a> All rights reserved
+				</p></div>
+				<!--/.Copyright-->
+			</footer>
+			<!-- /footer content -->
+		</div>
+	</div>
+
+	<!-- Google analytics -->
+	<script type="text/javascript">
+		tarteaucitron.user.gtagUa = 'UA-123851688-1';
+		tarteaucitron.user.gtagMore = function() { /* add here your optionnal gtag() */
+		};
+		(tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+	</script>
+	<!-- facebook pixel -->
+	<script type="text/javascript">
+		tarteaucitron.user.facebookpixelId = '298436144240183';
+		tarteaucitron.user.facebookpixelMore = function() { /* add here your optionnal facebook pixel function */
+		};
+		(tarteaucitron.job = tarteaucitron.job || []).push('facebookpixel');
+	</script>
+	<!-- jQuery -->
+	<script src="{% static 'home/jquery.min.js.download' %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'home/bootstrap.min.js.download' %}"></script>
+	<!-- FastClick -->
+	<script src="{% static 'home/fastclick.js.download' %}"></script>
+	<!-- NProgress -->
+	<script src="{% static 'home/nprogress.js.download' %}"></script>
+	<!-- iCheck -->
+	<script src="{% static 'home/icheck.min.js.download' %}"></script>
+	<!-- Datatables -->
+	<script src="{% static 'home/jquery.dataTables.min.js.download' %}"></script>
+	<script src="{% static 'home/dataTables.bootstrap.min.js.download' %}"></script>
+	<script src="{% static 'home/dataTables.buttons.min.js.download' %}"></script>
+	<script src="{% static 'home/buttons.bootstrap.min.js.download' %}"></script>
+	<script src="{% static 'home/buttons.flash.min.js.download' %}"></script>
+	<script src="{% static 'home/buttons.html5.min.js.download' %}"></script>
+	<script src="{% static 'home/buttons.print.min.js.download' %}"></script>
+	<script src="{% static 'home/dataTables.fixedHeader.min.js.download' %}"></script>
+	<script src="{% static 'home/dataTables.keyTable.min.js.download' %}"></script>
+	<script src="{% static 'home/dataTables.responsive.min.js.download' %}"></script>
+	<script src="{% static 'home/responsive.bootstrap.js.download' %}"></script>
+	<script src="{% static 'home/dataTables.scroller.min.js.download' %}"></script>
+	<script src="{% static 'home/jszip.min.js.download' %}"></script>
+	<script src="{% static 'home/pdfmake.min.js.download' %}"></script>
+	<script src="{% static 'home/vfs_fonts.js.download' %}"></script>
+	<script src="{% static 'home/moment.min.js.download' %}"></script>
+	<script src="{% static 'home/datetime-moment.js.download' %}"></script>
+	<script type="text/javascript" src="{% static 'home/webtoolkit.base64.js.download' %}"></script>
+	<script type="text/javascript" src="{% static 'home/config.js.download' %}"></script>
+	<!-- Custom Theme Scripts -->
+	<script src="{% static 'home/custom.min.js.download' %}"></script>
+	<script type="text/javascript" src="{% static 'home/script.js.download' %}"></script>
+	<script type="text/javascript">
+	
+	
+		$(document).ready(function() {
+	
+			hideSideBar();
+			
+				var currentUser=getCurrentUser();
+				if(currentUser!= null){
+					 $('#username').html(currentUser.username);
+					 if(currentUser.username =='admin'){
+						$('#authorDiv').css('display','');
+						$('#usersDiv').css('display','');
+					 }
+					}
+
+			
+		});
+	</script>
+
+<div id="fatkun-drop-panel">
+        <a id="fatkun-drop-panel-close-btn">×</a>
+            <div id="fatkun-drop-panel-inner">
+                <div class="fatkun-content">
+                    <svg class="fatkun-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5892"><path d="M494.933333 782.933333c2.133333 2.133333 4.266667 4.266667 8.533334 6.4h8.533333c6.4 0 10.666667-2.133333 14.933333-6.4l2.133334-2.133333 275.2-275.2c8.533333-8.533333 8.533333-21.333333 0-29.866667-8.533333-8.533333-21.333333-8.533333-29.866667 0L533.333333 716.8V128c0-12.8-8.533333-21.333333-21.333333-21.333333s-21.333333 8.533333-21.333333 21.333333v588.8L249.6 475.733333c-8.533333-8.533333-21.333333-8.533333-29.866667 0-8.533333 8.533333-8.533333 21.333333 0 29.866667l275.2 277.333333zM853.333333 874.666667H172.8c-12.8 0-21.333333 8.533333-21.333333 21.333333s8.533333 21.333333 21.333333 21.333333H853.333333c12.8 0 21.333333-8.533333 21.333334-21.333333s-10.666667-21.333333-21.333334-21.333333z" p-id="5893"></path></svg>
+                    <div class="fatkun-title">Drag and Drop</div>
+                    <div class="fatkun-desc">The image will be downloaded</div>
+                </div>
+            </div>
+    </div><div id="tarteaucitronRoot"><div id="tarteaucitronPremium"></div><div id="tarteaucitronBack" onclick="tarteaucitron.userInterface.closePanel();"></div><div id="tarteaucitron">   <div id="tarteaucitronClosePanel" onclick="tarteaucitron.userInterface.closePanel();">       Close   </div>   <div id="tarteaucitronServices">      <div class="tarteaucitronLine tarteaucitronMainLine" id="tarteaucitronMainLineOffset">         <div class="tarteaucitronName">            <b><a href="https://asksensors.com/home.html#" onclick="tarteaucitron.userInterface.toggle(&#39;tarteaucitronInfo&#39;, &#39;tarteaucitronInfoBox&#39;);return false">✛</a> Preference for all services</b>         </div>         <div class="tarteaucitronAsk" id="tarteaucitronScrollbarAdjust">            <div id="tarteaucitronAllAllowed" class="tarteaucitronAllow" onclick="tarteaucitron.userInterface.respondAll(true);" style="background-color: rgb(27, 135, 11);">               ✓ Allow            </div>             <div id="tarteaucitronAllDenied" class="tarteaucitronDeny" onclick="tarteaucitron.userInterface.respondAll(false);" style="background-color: rgb(128, 128, 128);">               ✗ Deny            </div>         </div>      </div>      <div id="tarteaucitronInfo" class="tarteaucitronInfoBox">         By allowing these third party services, you accept their cookies and the use of tracking technologies necessary for their proper functioning.        <br><br>        <a href="https://opt-out.ferank.eu/" rel="nofollow" target="_blank">Cookies manager by tarteaucitron.js</a>      </div>      <div class="tarteaucitronBorder" id="tarteaucitronScrollbarParent">         <div class="clear"></div>         <div id="tarteaucitronServicesTitle_api" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <a href="https://asksensors.com/home.html#" onclick="tarteaucitron.userInterface.toggle(&#39;tarteaucitronDetailsapi&#39;, &#39;tarteaucitronInfoBox&#39;);return false">✛</a> APIs            </div>            <div id="tarteaucitronDetailsapi" class="tarteaucitronDetails tarteaucitronInfoBox">               APIs are used to load scripts: geolocation, search engines, translations, ...            </div>         </div>         <div id="tarteaucitronServices_api"></div>         <div id="tarteaucitronServicesTitle_ads" class="tarteaucitronHidden" style="display: block;">            <div class="tarteaucitronTitle">               <a href="https://asksensors.com/home.html#" onclick="tarteaucitron.userInterface.toggle(&#39;tarteaucitronDetailsads&#39;, &#39;tarteaucitronInfoBox&#39;);return false">✛</a> Advertising network            </div>            <div id="tarteaucitronDetailsads" class="tarteaucitronDetails tarteaucitronInfoBox">               Ad networks can generate revenue by selling advertising space on the site.            </div>         </div>         <div id="tarteaucitronServices_ads"><div id="facebookpixelLine" class="tarteaucitronLine" style="border-left: 5px solid rgb(27, 135, 11);">   <div class="tarteaucitronName">       <b>Facebook Pixel</b><br>       <span id="tacCLfacebookpixel" class="tarteaucitronListCookies">This service has not installed any cookie.</span><br>       <a href="https://opt-out.ferank.eu/service/facebookpixel/" target="_blank" rel="noopener">           Read more       </a>        -        <a href="https://fr-fr.facebook.com/business/help/www/651294705016616" target="_blank" rel="noopener">           View the official website       </a>   </div>   <div class="tarteaucitronAsk">       <div id="facebookpixelAllowed" class="tarteaucitronAllow" onclick="tarteaucitron.userInterface.respond(this, true);" style="background-color: rgb(27, 135, 11);">           ✓ Allow       </div>        <div id="facebookpixelDenied" class="tarteaucitronDeny" onclick="tarteaucitron.userInterface.respond(this, false);" style="background-color: rgb(128, 128, 128);">           ✗ Deny       </div>   </div></div></div>         <div id="tarteaucitronServicesTitle_analytic" class="tarteaucitronHidden" style="display: block;">            <div class="tarteaucitronTitle">               <a href="https://asksensors.com/home.html#" onclick="tarteaucitron.userInterface.toggle(&#39;tarteaucitronDetailsanalytic&#39;, &#39;tarteaucitronInfoBox&#39;);return false">✛</a> Audience measurement            </div>            <div id="tarteaucitronDetailsanalytic" class="tarteaucitronDetails tarteaucitronInfoBox">               The audience measurement services used to generate useful statistics attendance to improve the site.            </div>         </div>         <div id="tarteaucitronServices_analytic"><div id="gtagLine" class="tarteaucitronLine" style="border-left: 5px solid rgb(27, 135, 11);">   <div class="tarteaucitronName">       <b>Google Analytics (gtag.js)</b><br>       <span id="tacCLgtag" class="tarteaucitronListCookies">This service has installed 2 cookies.</span><br>       <a href="https://opt-out.ferank.eu/service/gtag/" target="_blank" rel="noopener">           Read more       </a>        -        <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">           View the official website       </a>   </div>   <div class="tarteaucitronAsk">       <div id="gtagAllowed" class="tarteaucitronAllow" onclick="tarteaucitron.userInterface.respond(this, true);" style="background-color: rgb(27, 135, 11);">           ✓ Allow       </div>        <div id="gtagDenied" class="tarteaucitronDeny" onclick="tarteaucitron.userInterface.respond(this, false);" style="background-color: rgb(128, 128, 128);">           ✗ Deny       </div>   </div></div></div>         <div id="tarteaucitronServicesTitle_comment" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <a href="https://asksensors.com/home.html#" onclick="tarteaucitron.userInterface.toggle(&#39;tarteaucitronDetailscomment&#39;, &#39;tarteaucitronInfoBox&#39;);return false">✛</a> Comments            </div>            <div id="tarteaucitronDetailscomment" class="tarteaucitronDetails tarteaucitronInfoBox">               Comments managers facilitate the filing of comments and fight against spam.            </div>         </div>         <div id="tarteaucitronServices_comment"></div>         <div id="tarteaucitronServicesTitle_other" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <a href="https://asksensors.com/home.html#" onclick="tarteaucitron.userInterface.toggle(&#39;tarteaucitronDetailsother&#39;, &#39;tarteaucitronInfoBox&#39;);return false">✛</a> Other            </div>            <div id="tarteaucitronDetailsother" class="tarteaucitronDetails tarteaucitronInfoBox">               Services to display web content.            </div>         </div>         <div id="tarteaucitronServices_other"></div>         <div id="tarteaucitronServicesTitle_social" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <a href="https://asksensors.com/home.html#" onclick="tarteaucitron.userInterface.toggle(&#39;tarteaucitronDetailssocial&#39;, &#39;tarteaucitronInfoBox&#39;);return false">✛</a> Social networks            </div>            <div id="tarteaucitronDetailssocial" class="tarteaucitronDetails tarteaucitronInfoBox">               Social networks can improve the usability of the site and help to promote it via the shares.            </div>         </div>         <div id="tarteaucitronServices_social"></div>         <div id="tarteaucitronServicesTitle_support" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <a href="https://asksensors.com/home.html#" onclick="tarteaucitron.userInterface.toggle(&#39;tarteaucitronDetailssupport&#39;, &#39;tarteaucitronInfoBox&#39;);return false">✛</a> Support            </div>            <div id="tarteaucitronDetailssupport" class="tarteaucitronDetails tarteaucitronInfoBox">               Support services allow you to get in touch with the site team and help to improve it.            </div>         </div>         <div id="tarteaucitronServices_support"></div>         <div id="tarteaucitronServicesTitle_video" class="tarteaucitronHidden">            <div class="tarteaucitronTitle">               <a href="https://asksensors.com/home.html#" onclick="tarteaucitron.userInterface.toggle(&#39;tarteaucitronDetailsvideo&#39;, &#39;tarteaucitronInfoBox&#39;);return false">✛</a> Videos            </div>            <div id="tarteaucitronDetailsvideo" class="tarteaucitronDetails tarteaucitronInfoBox">               Video sharing services help to add rich media on the site and increase its visibility.            </div>         </div>         <div id="tarteaucitronServices_video"></div>         <div class="tarteaucitronHidden" id="tarteaucitronScrollbarChild" style="height:20px;display:block"></div>       </div>   </div></div><div id="tarteaucitronAlertBig" class="tarteaucitronAlertBigBottom" style="display: none;">   <span id="tarteaucitronDisclaimerAlert">       If you continue to browse this website, you are allowing all third-party services   </span>   <span id="tarteaucitronPersonalize" onclick="tarteaucitron.userInterface.respondAll(true);">       ✓ OK, accept all   </span>   <span id="tarteaucitronCloseAlert" onclick="tarteaucitron.userInterface.openPanel();">       Personalize   </span></div><div id="tarteaucitronPercentage" style="display: none;"></div></div></body></html>

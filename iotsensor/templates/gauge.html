@@ -1,0 +1,142 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=gauge-simple
+-->
+<!DOCTYPE html>
+<html style="height: 100%"; width: 100%; margin: 0>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+        width: 100%;
+        height: 100%;
+        }
+
+        .leftpane {
+            width: 25%;
+            height: 100%;
+            float: left;
+            background-color: rosybrown;
+            border-collapse: collapse;
+        }
+
+        .middlepane {
+            width: 50%;
+            height: 100%;
+            float: left;
+            background-color: royalblue;
+            border-collapse: collapse;
+        }
+
+        .rightpane {
+        width: 25%;
+        height: 100%;
+        position: relative;
+        float: right;
+        background-color: yellow;
+        border-collapse: collapse;
+        }
+
+        .toppane {
+        width: 100%;
+        height: 100px;
+        border-collapse: collapse;
+        background-color: #4da6ff;
+        }
+
+        </style>
+</head>
+<body style="height: 100%; margin: 0">
+    <div class="container">
+        <div class="toppane">Test Page</div>
+    <div class="leftpane">
+        <div id="container2" style="height: 50%"></div>
+        <div class="centered">
+        <h2>سنسور گاز</h2>
+        <p>وضعیت فن</p>
+        </div>
+      </div>
+      
+      <div class="middlepane">
+        
+          <div id="container" style="height: 50%"></div>
+          <div class="centered">
+          <h2>سنسور گاز 2</h2>
+          <p> {{ time }}</p>
+          </div>
+      </div>
+
+      <div class="rightpane">
+        <h1>Test Page</h1></div>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        var option;
+
+        var option2;
+        var dom2 = document.getElementById("container2");
+        var myChart2 = echarts.init(dom2);
+        var app2 = {};
+
+
+        option = {
+            tooltip: {
+                formatter: '{a} <br/>{b} : {c}%'
+            },
+            series: [{
+                name: 'Pressure',
+                type: 'gauge',
+                progress: {
+                    show: true
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}'
+                },
+                data: [{
+                    value: {{ moist }},
+                    name: 'SCORE'
+                }]
+            }]
+        };
+        console.log("------------")
+        console.log({{ time }})
+        console.log("+++++++++++++")
+        option2 = {
+            tooltip: {
+                formatter: '{a} <br/>{b} : {c}%'
+            },
+            series: [{
+                name: 'Pressure',
+                type: 'gauge',
+                progress: {
+                    show: true
+                },
+                detail: {
+                    valueAnimation: true,
+                    formatter: '{value}'
+                },
+                data: [{
+                    
+                    value: {{ temp }},
+                    name: 'SCORE'
+                }]
+            }]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+        if (option2 && typeof option2 === 'object') {
+            myChart2.setOption(option2);
+        }
+
+
+
+    </script>
+</body>
+
+</html>

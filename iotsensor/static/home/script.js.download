@@ -1,0 +1,343 @@
+var	headers = {
+						"Authorization" : "Bearer " + localStorage.getItem('jwt')
+					}	
+	if(!isLoggedIn()){
+		//document.location=frontUrl+'/login.html';
+	}
+
+var displayType=localStorage.getItem('sensorDisplayType');
+
+if (!displayType){
+	if($(window).width() <= 480)
+		displayType = localStorage.setItem('sensorDisplayType', 'grid');
+	else
+		displayType = localStorage.setItem('sensorDisplayType', 'list');	
+}
+
+function formatDateByTimeZone(date,format,timezone){
+	
+	if(timezone && timezone!='')
+		return moment.utc(date).utcOffset(parseInt(timezone)*60).format(format);
+	
+	return moment.utc(date).format(format);
+}
+
+function hideSideBar(){
+	
+	if ($(window).width() > 480){
+		
+        $('#sidebar-menu').find('li.active ul').hide();
+        $('#sidebar-menu').find('li ul').hide();
+        $('#sidebar-menu').find('li').removeClass('active');
+   
+    $('body').toggleClass('nav-md nav-sm');
+
+   setContentHeight();
+
+    $('.dataTable').each ( function () { $(this).dataTable().fnDraw(); });
+
+}
+}
+
+function closeSideBar(){
+	
+	if ($(window).width() <= 480 && $('#sidebar-menu').find('li').is(":visible")){
+		
+        $('#sidebar-menu').find('li.active ul').hide();
+        $('#sidebar-menu').find('li ul').hide();
+        $('#sidebar-menu').find('li').removeClass('active');
+   
+    $('body').toggleClass('nav-md nav-sm');
+
+   setContentHeight();
+
+    $('.dataTable').each ( function () { $(this).dataTable().fnDraw(); });
+
+}
+}
+
+function hideSideBarMobile(){
+	
+		
+	if ($(window).width() <= 480){
+		if($('#sidebar-menu').find('li ul').is(":visible")){
+        $('#sidebar-menu').find('li.active ul').hide();
+        $('#sidebar-menu').find('li ul').hide();
+        $('#sidebar-menu').find('li').removeClass('active');
+   
+    $('body').toggleClass('nav-md nav-sm');
+
+   setContentHeight();
+
+    $('.dataTable').each ( function () { $(this).dataTable().fnDraw(); });
+	}
+	}
+}
+
+function setContentHeight(){
+	
+	  $('.right_col').css('min-height', $(window).height());
+
+    var bodyHeight = $('body').outerHeight(),
+        footerHeight = $('body').hasClass('footer_fixed') ? -10 : $('footer').height(),
+        leftColHeight = $('.left_col').eq(1).height() + $('.sidebar-footer').height(),
+        contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
+
+    // normalize content
+    contentHeight -= $('.nav_menu').height() + footerHeight;
+
+    $('.right_col').css('min-height', contentHeight);
+}	
+
+function onloadEnd(){
+	
+	$(".preloader").addClass("preloader-hidden");
+	$("#datatable").show();
+}
+	
+	function getError(error){
+        console.log("hi")
+//		if(error){
+//			if(error == 'Full authentication is required to access this resource')
+//			document.location=frontUrl+'/login.html';
+//		}else{
+//			console.log(error)
+//		}
+	}
+	
+	
+	function getCurrentUser(){
+		Base64.decode(localStorage.getItem('currentUser'))
+		if(localStorage.getItem('currentUser')){
+		
+			return JSON.parse(Base64.decode(localStorage.getItem('currentUser')));
+		}
+		
+		return null;
+	}
+	
+	function logout(){
+		
+		localStorage.clear();
+		document.location=frontUrl+"/index.html"
+	}
+	
+	function getUsername(){
+		var currentUser=getCurrentUser();
+		if(currentUser){
+			return currentUser.username;
+		}
+		
+		return "";
+	}
+
+	function isLoggedIn() {
+	    var isLogged = true;
+	    var token = localStorage.getItem( 'jwt' );
+	
+	    if ( token != null ) {
+// isLogged = tokenNotExpired( token );
+// if ( isLogged === false ) {
+// removeToken();
+// }
+	    	isLogged =true;
+	    }
+
+    return isLogged;
+}
+	
+	function  removeToken() {
+        localStorage.removeItem( 'jwt' );
+        localStorage.removeItem( 'currentUser' );
+        localStorage.removeItem( 'dateExpiration' );
+        localStorage.clear();
+        sessionStorage.clear();
+	    }
+
+	function tokenNotExpired( token ) {
+		return !isTokenExpired( token );
+}
+
+	function isTokenExpired( token, offsetSeconds ) {
+    var date = getTokenExpirationDate( token );
+
+    var dateExpiration = localStorage.getItem( 'dateExpiration' );
+    if ( !dateExpiration ) {
+        var dateServer = new Date( 0 );
+        dateServer.setUTCSeconds( localStorage.getItem( 'dateServer' ) );
+        var difference = ( date.getTime() - dateServer.getTime() ) / 1000;
+
+        var d= any = new Date();
+        d.setSeconds( d.getSeconds() + Math.abs( difference ) );
+        localStorage.setItem( 'dateExpiration', d );
+        dateExpiration = d;
+    }
+
+    offsetSeconds = offsetSeconds || 0;
+
+    if ( dateExpiration == null ) {
+        return false;
+    }
+
+
+    return !( new Date(dateExpiration).getTime() >  new Date().getTime() );
+}
+	
+    function getTokenExpirationDate( token ) {
+        var decoded;
+        decoded = decodeToken( token );
+        var dateServer = new Date( 0 );
+
+        var deltaDateServer = 0
+        if ( decoded.hasOwnProperty( 'iat' ) ) {
+            dateServer.setUTCSeconds( decoded.iat );
+            localStorage.setItem( 'dateServer', decoded.iat );
+
+
+            var now = new Date();
+            deltaDateServer = dateDiff( now, dateServer );
+            deltaDateServer = JSON.stringify( deltaDateServer );
+        }
+        localStorage.setItem( 'deltaDate', deltaDateServer );
+
+
+
+        if ( !decoded.hasOwnProperty( 'exp' ) ) {
+            return null;
+        }
+
+        var date = new Date( 0 ); // The 0 here is the key, which sets the
+									// date to the epoch
+        date.setUTCSeconds( decoded.exp );
+
+        return date;
+    }
+    
+    function urlBase64Decode( str ) {
+        var output = str.replace( /-/g, '+' ).replace( /_/g, '/' );
+        switch ( output.length % 4 ) {
+            case 0: { break; }
+            case 2: { output += '=='; break; }
+            case 3: { output += '='; break; }
+            default: {
+                throw 'Illegal base64url string!';
+            }
+        }
+        return b64DecodeUnicode( output );
+    }
+    
+    function b64DecodeUnicode( str ) {
+        return decodeURIComponent( Array.prototype.map.call( b64decode( str ), ( c ) => {
+            return '%' + ( '00' + c.charCodeAt( 0 ).toString( 16 ) ).slice( -2 );
+        }).join( '' ) );
+    }
+    
+    // credits for decoder goes to https://github.com/atk
+    function b64decode( str ) {
+        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+        var output = '';
+
+        str = String( str ).replace( /=+$/, '' );
+
+        if ( str.length % 4 == 1 ) {
+            throw new Error( "'atob' failed: The string to be decoded is not correctly encoded." );
+        }
+
+        for (
+            // initialize result and counters
+            var bc = 0, bs, buffer, idx = 0;
+            // get next character
+            buffer = str.charAt( idx++ );
+            // character found in table? initialize bit storage and add its
+			// ascii value;
+            ~buffer && ( bs = bc % 4 ? bs * 64 + buffer : buffer,
+                // and if not first of each 4 characters,
+                // convert the first 8 bits to one ascii character
+                bc++ % 4 ) ? output += String.fromCharCode( 255 & bs >> ( -2 * bc & 6 ) ) : 0
+        ) {
+            // try to find character in table (0-63, not found => -1)
+            buffer = chars.indexOf( buffer );
+        }
+        return output;
+    }
+    
+    function decodeToken( token ) {
+        var parts = token.split( '.' );
+
+        if ( parts.length !== 3 ) {
+            throw new Error( 'JWT must have 3 parts' );
+        }
+
+        var decoded = urlBase64Decode( parts[1] );
+        if ( !decoded ) {
+            throw new Error( 'Cannot decode the token' );
+        }
+
+        return JSON.parse( decoded );
+    }
+
+	function dateDiff( date1, date2 ) {
+	    var diff = {}                           // Initialisation du retour
+	    var tmp = date2 - date1;
+	    tmp = Math.floor( tmp / 1000 );             // Nombre de secondes entre
+													// les
+	    diff.sec = tmp % 60;                    // Extraction du nombre de
+												// secondes
+	    tmp = Math.floor(( tmp - diff.sec ) / 60 );    // Nombre de minutes
+														// (partie
+	    diff.min = tmp % 60;                    // Extraction du nombre de
+												// minutes
+	    tmp = Math.floor(( tmp - diff.min ) / 60 );    // Nombre d'heures
+	    diff.hour = tmp % 24;                   // Extraction du nombre d'heures
+	    tmp = Math.floor(( tmp - diff.hour ) / 24 );   // Nombre de jours
+														// restants
+	    diff.day = tmp;
+	    
+    return diff;
+}
+	
+	function validateEmail(email) {
+		  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		  return re.test(email);
+		}
+	
+	
+	function comingSoonDialog(){
+		
+		hideSideBarMobile();
+		hideSideBarMobile();
+	    var comingSoonModal = '<div id="comingSoonModal" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog" aria-hidden="true">\
+            <div class="modal-dialog">\
+        <div class="modal-content">\
+          <div class="modal-header">\
+             <h4 class="modal-title" style="color:#1b334b;text-align:left;">Information</h4>\
+          </div>\
+          <div class="modal-body">\
+			<div class="center-text successModalBody" style="color:black;text-align:center;">\
+	    	<div style="width:100%;text-align:center"><h2 style="color:#1b334b;font-weight:bold;"> THIS FEATURE IS COMING SOON! </h2><br>\
+	    	This feature is currently under construction. Please check back soon!\
+	    	<br><br>\
+	    	</div>\
+			</div>\
+	    	 <div class="modal-footer" style="padding-buttom:5px">\
+	    	 <button type="button" class="btn btn-default" onclick="closeComingSoonDialog()">Close</button>\
+	    	</div>\
+          </div>\
+        </div>\
+      </div>\
+    </div>';
+	        $(document.body).append(comingSoonModal);
+	        $("#comingSoonModal").modal("show");
+		
+}	
+	
+	function closeComingSoonDialog(){
+		
+		   $("#comingSoonModal").modal("hide");
+		   hideSideBar();
+		   hideSideBar()
+			hideSideBarMobile();
+			hideSideBarMobile();
+		
+	}
+	
