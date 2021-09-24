@@ -44,7 +44,7 @@ def gauges(request):
 def senddata(request):
     if request.method == "POST":
         cwd = os.getcwd()
-    # print('*******',cwd)
+        # print('*******',request.body)
         address = cwd + '\iotsensor\static\data.json'
         address = address.replace('\\','/')
         json_data = json.loads(request.body)
