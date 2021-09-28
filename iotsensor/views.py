@@ -32,6 +32,10 @@ def gauges(request):
     context = {
         'temp': data['temp'],
         'moist': data['moist'],
+        'mq9': data['mq9'],
+        'mq2': data['mq2'],
+        'mq135': data['mq135'],
+        'gp2': data['gp2'],
         'time': data['time'],
     }
     print(context)
@@ -44,7 +48,7 @@ def gauges(request):
 def senddata(request):
     if request.method == "POST":
         cwd = os.getcwd()
-        # print('*******',request.body)
+        print('*******',request.body)
         address = cwd + '\iotsensor\static\data.json'
         address = address.replace('\\','/')
         json_data = json.loads(request.body)
