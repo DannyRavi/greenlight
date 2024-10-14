@@ -20,8 +20,8 @@ const uint8_t SHARP_VO_PIN = 34;    // Sharp Dust/particle analog out pin used f
 GP2YDustSensor dustSensor(GP2YDustSensorType::GP2Y1010AU0F, SHARP_LED_PIN, SHARP_VO_PIN);
 
 #define DHTPIN 15
-const char* ssid = "mehdilinksys";
-const char* password = "mehdi@1354@";
+const char* ssid = "******"; //set your ssid
+const char* password = "*****"; // set your wifi Password
 //Your Domain name with URL path or IP address with path
 const char* serverName = "http://192.168.1.100:8000/senddata/";
 DHT dht(DHTPIN, DHT11);
